@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project three</title>
-    <style>
-        .allQuestions {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <header>
@@ -25,7 +21,7 @@
                 <h3>Rules</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, voluptates?</p>
             </div>
-            <button>Play</button>
+            <button class="introScreenButton">Play</button>
         </section>
         <form action="">
 			<fieldset class="question1 allQuestions ">
@@ -40,11 +36,11 @@
 			<fieldset class="question2 allQuestions ">
 				<p>Which is the smallest country in the world?</p>
 				<label for="vaticanCity">Vatican City</label>
-				<input type="radio" name="geography" id="vaticanCity" value="Nile River">
+				<input type="radio" name="geography" id="vaticanCity" value="Vatican City">
 				<label for="monaco">Monaco</label>
-				<input type="radio" name="geography" id="monaco" value="Amazon River">
+				<input type="radio" name="geography" id="monaco" value="Monaco">
 				<label for="nauru">Nauru</label>
-				<input type="radio" name="geography"  id="nauru" value="Yangtze River">
+				<input type="radio" name="geography"  id="nauru" value="Nauru">
             </fieldset>	
             <fieldset class="question3 allQuestions ">
 				<p>Who is the smallest person alive in the world?</p>
@@ -53,26 +49,29 @@
 				<label for="chandraB">Chandra Bahadur</label>
 				<input type="radio" name="smallestPerson" id="chandraB" value="Chandra Bahadur">
 				<label for="gulM">Gul Mohammed</label>
-				<input type="radio" name="smallestPerson"  id="gulM" value="Gul Mohammed">
+				<input type="radio" name="smallestPerson" id="gulM" value="Gul Mohammed">
             </fieldset>
             <fieldset class="question4 allQuestions ">
 				<p>Who is the youngest Nobel Prize winner?</p>
-				<label for="jyotiAmge">Lawrence Bragg</label>
-				<input type="radio" name="smallestPerson" id="jyotiAmge" value="Jyoti Amge">
-				<label for="chandraB">Barack Obama</label>
-				<input type="radio" name="smallestPerson" id="chandraB" value="Chandra Bahadur">
-				<label for="gulM">Malala Yousafzai</label>
-				<input type="radio" name="smallestPerson"  id="gulM" value="Gul Mohammed">
+				<label for="lawrence">Lawrence Bragg</label>
+				<input type="radio" name="nobelPrize" id="lawrence" value="Lawrence Bragg">
+				<label for="barackO">Barack Obama</label>
+				<input type="radio" name="nobelPrize" id="barackO" value="Barack Obama">
+				<label for="malalaY">Malala Yousafzai</label>
+				<input type="radio" name="nobelPrize"  id="malalaY" value="Malala Yousafzai">
             </fieldset>
             <fieldset class="question5 allQuestions ">
 				<p>Who designed the first algorithm intended to be executed by a computer?</p>
-				<label for="jyotiAmge"> Ada Lovelace  </label>
-				<input type="radio" name="smallestPerson" id="jyotiAmge" value="Jyoti Amge">
-				<label for="chandraB">Bill Gates</label>
-				<input type="radio" name="smallestPerson" id="chandraB" value="Chandra Bahadur">
-				<label for="gulM"> Steve Jobs</label>
-				<input type="radio" name="smallestPerson"  id="gulM" value="Gul Mohammed">
-			</fieldset>
+				<label for="adaLovelace"> Ada Lovelace  </label>
+				<input type="radio" name="computerAlgorithm" id="adaLovelace" value="Ada Lovelace">
+				<label for="billG">Bill Gates</label>
+				<input type="radio" name="computerAlgorithm" id="billG" value="Bill Gates">
+				<label for="steveJobs"> Steve Jobs</label>
+                <input type="radio" name="computerAlgorithm" id="steveJobs" value="Steve Jobs">
+            </fieldset>
+            <div class="submitForm button">
+                <input type="submit" value="Win a gift!">
+            </div>
 		</form>
         <section>
             <div class="randomQuestion">

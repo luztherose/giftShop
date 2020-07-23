@@ -1,0 +1,32 @@
+body {
+    background-color: bisque;
+}
+.allQuestions, 
+.button {
+    display: none;
+}
+.greenBackground {
+    background-color: green;
+}
+.redBackground {
+    background-color: red;
+}
+form p,
+label {
+	font-size: 25px;
+	margin-top: 0;
+}
+input[type=radio] {
+	margin-right: 50px;
+}
+.submitForm {
+	padding-top: 100px;
+	text-align: center;
+}
+input[type=submit] {
+	background: white;
+	padding: 15px 25px;
+	border: none;
+	text-transform: uppercase;
+	font-weight: bold;
+}
