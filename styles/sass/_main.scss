@@ -30,6 +30,12 @@ h2,
 label {
 	margin: 0;
 }
+.gameDescriptionSection {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
 h1 {
 	text-align: center;
 	padding-top: 50px;
@@ -37,6 +43,10 @@ h1 {
 	font-size: 7rem;
 	font-weight:$fontWeightBold;
 	text-shadow: 2px 2px goldenrod;
+}
+.gameRules {
+	width: 50%;
+	padding-top: 30px;
 }
 button {
 	@include secondary-links;
@@ -46,7 +56,8 @@ button {
     display: none;
 }
 .greenBackground {
-    background-color: green;
+	border: 3px solid green;
+    //background-color: green;
 }
 .redBackground {
     background-color: red;
@@ -82,4 +93,29 @@ input[type=submit] {
 	border: none;
 	text-transform: uppercase;
 	font-weight: bold;
+}
+.giftShopSection {
+	display: flex;
+	padding-top: 60px;
+	
+}
+.supriseGift {
+	margin-right: 30px;
+}
+.selectedGift {
+	margin: 0 auto;
+	width: 400px;
+	margin-top: 30px;
+}
+
+.videoContainer {
+	position: relative;
+	width: 400px;
+	margin: 0 auto;
+}
+.videoContainer iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 }

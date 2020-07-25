@@ -17,13 +17,19 @@
     </header>
     <main>
         <div class="wrapper">
-        <section>
+        <section class="gameDescriptionSection">
             <div>
                 <h1>Gift Shop</h1>
             </div>
             <div class="gameRules">
-                <h3>Rules</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae, voluptates?</p>
+                <h3>Game Description</h3>
+                <p>giftShop is a game for gift lovers. Here, the gamer must answer one random question and if the player's choice is correct the player will be brought to the giftShop where he or she can pick a gift for free.</p>
+                <ul>
+                    <h3>Steps:</h3>
+                    <li>To start playing the user must hit the Play Button</li>
+                    <li>Here, the user should pick an answer and click the submit button</li>
+                    <li>If the player's choice is correct</li>
+                </ul>
             </div>
             <button class="introScreenButton">Play</button>
         </section>
@@ -76,10 +82,27 @@
             <div class="submitForm button">
                 <input type="submit" value="Win a gift!">
             </div>
+            <section class="giftShopSection">
+            <div class="button supriseGift">
+                <button type="button">Surprise Gift</button>
+            </div>
+            <div class="button safeGift">
+                <button type="button">Safe Gift</button>
+            </div>
+            <audio id="buzzerWrongAnswer" >
+                <source src="assets/buzzerWrongAnswer.mp4" type="audio/ogg">
+                <source src="assets/buzzerWrongAnswer.mp4" type="audio/mpeg">
+            </audio>
+            <audio id="buzzerRightAnswer" >
+                <source src="assets/DingRightAnswer.mp4" type="audio/ogg">
+                <source src="assets/DingRightAnswer.mp4" type="audio/mpeg">
+            </audio>
+        </section>
 		</form>
         <section>
-            <div class="randomQuestion">
-
+            <div class="selectedGift">
+            </div>
+            <div class="videoContainer">
             </div>
         </section>
     </div>
@@ -98,7 +121,7 @@
             </ul>
         </div>
     </footer>
-   <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="js/script.js"></script>
 </body>
 </html>
