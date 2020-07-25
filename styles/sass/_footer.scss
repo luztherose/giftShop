@@ -1,0 +1,38 @@
+footer {
+    background-color: $goldenColor;
+    height: 150px;
+}
+.junoBrandName {
+    text-align: center;
+    padding-top: 30px;
+    margin: 0;
+    a {
+        text-decoration: none;
+        color:#333;
+        &:hover {
+            transition: 0.5s;
+            font-size: 2.5rem;
+            color: lighten($color:#333, $amount: 10);
+        }
+    }
+}
+.socialMediaIcons {
+    margin: 0;
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        a {
+            padding: 0 15px;
+            font-size: 3rem;
+            color: $bodyBackgroundColor;
+            text-shadow:3px 3px $hardRedColor;
+            &:hover {
+                transition: 0.6s;
+                color:#333;
+                text-shadow:2px 2px $bodyBackgroundColor;
+                font-size: 4rem;
+            }
+        }
+    }
+}

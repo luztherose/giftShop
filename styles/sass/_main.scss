@@ -1,5 +1,45 @@
+.wrapper {
+    max-width: 1440px;
+    width: 90%;
+	margin: 0 auto;
+	height: 100vh;
+}
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+html {
+	font-size: 62.5%;
+}
 body {
-    background-color: bisque;
+	background-color: $bodyBackgroundColor;
+	font-family: $baseFont;
+	font-size: 2rem;
+	color: #333;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+p,
+h1,
+h2,
+label {
+	margin: 0;
+}
+h1 {
+	text-align: center;
+	padding-top: 50px;
+	font-family:$secondaryFont;
+	font-size: 7rem;
+	font-weight:$fontWeightBold;
+	text-shadow: 2px 2px goldenrod;
+}
+button {
+	@include secondary-links;
 }
 .allQuestions, 
 .button {
@@ -11,13 +51,26 @@ body {
 .redBackground {
     background-color: red;
 }
-form p,
-label {
-	font-size: 25px;
-	margin-top: 0;
+form p {
+	margin-bottom: 20px;
 }
+fieldset {
+	border: none;
+	padding-top: 30px;
+}
+label {
+	display: block;
+	margin-left: 30px;
+}
+
 input[type=radio] {
-	margin-right: 50px;
+	// margin-left: 40px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	opacity: 2;
+	position: relative;
+	top: 25px;
 }
 .submitForm {
 	padding-top: 100px;
