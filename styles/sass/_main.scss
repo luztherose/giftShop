@@ -29,6 +29,7 @@ form {
 p,
 h1,
 h2,
+h3,
 label {
 	margin: 0;
 }
@@ -51,7 +52,7 @@ h1 {
 	padding-top: 30px;
 }
 button {
-	@include secondary-links;
+	@include buttons;
 }
 .allQuestions, 
 .button {
@@ -75,7 +76,6 @@ label {
 	display: block;
 	margin-left: 30px;
 }
-
 input[type=radio] {
 	// margin-left: 40px;
 	width: 20px;
@@ -109,7 +109,6 @@ input[type=submit] {
 	width: 400px;
 	margin-top: 30px;
 }
-
 .videoContainer {
 	position: relative;
 	width: 400px;

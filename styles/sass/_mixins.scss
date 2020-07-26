@@ -1,20 +1,5 @@
-@mixin left-bottom-box-shadow() {
-    box-shadow: 15px 15px  $bright-yellow-color;
-    box-shadow: -15px 15px  $bright-yellow-color;
-}
-@mixin right-bottom-text-shadow() {
-    box-shadow: 15px 15px $bright-yellow-color;
-}
-@mixin input-form() {
-    background-color:$ice-color;
-    border: none;
-    border-bottom: 2px solid $evergreen-color;
-    width: 300px;
-    padding: 30px 20px;
-    margin: 0px 40px;
-    
-}
-@mixin secondary-links() {
+
+@mixin buttons() {
     cursor: pointer;
     padding: 10px 15px;
     // background: #333;
