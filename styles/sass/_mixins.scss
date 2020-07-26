@@ -2,11 +2,10 @@
 @mixin buttons() {
     cursor: pointer;
     padding: 10px 15px;
-    // background: #333;
     color: $bodyBackgroundColor;
     font-family: $baseFont;
     font-size: 2rem;
-    font-weight: $secondaryFont;
+    font-weight: $fontWeightBold;
     letter-spacing: 1px;
     line-height: 32px;
     text-transform: uppercase;
@@ -14,12 +13,13 @@
     display: inline-block;
     width: 230px;
     position: relative;
-    background: darkgrey;
+    background-image: linear-gradient(to right, rgba(158, 131, 12, 2), rgb(54, 48, 9));
     border: none;
-    color:$bodyBackgroundColor ;
     padding: 15px 24px;
-    box-shadow: -6px 6px 0 hsl(0, 11%, 85%);
+    border-radius: 6px;
     outline: none;
-    
-    
+    margin: 20px 0;
+}
+@mixin buttonHover {
+    background-image: linear-gradient(to right, rgb(241, 201, 22), rgb(54, 48, 8));
 }

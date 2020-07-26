@@ -104,7 +104,9 @@ giftApp.init = function () {
     giftApp.$screenTittle = $('h1');
     //TODO: ADD $ TO VARIABLES NAMES
     // intro button
+    let userName;
     giftApp.$playButton = $('.introScreenButton').on('click', function () {
+        userName = prompt("What's your name?");
         $('.gameRules').addClass('button');
         giftApp.displayRandomQuestion();
         $('.submitForm').removeClass('button');
@@ -124,13 +126,14 @@ giftApp.init = function () {
         // Validating user's choice 
         if (userAnwer === correctAnswer) {
             giftApp.buzzerRightAnwer.play();
+
             giftApp.$screenTittle.text('Pick Your Gift 🎁');
             // hide current question
             giftApp.questionDisplayed.addClass('allQuestions');
             // hide submit button
             $('.submitForm').addClass('button');
             // display a message
-            alert('Welcome to Our GiftShop')
+            alert(`${userName}, welcome to our 𝔾ift 𝕊hop! 🛍`)
             // Select giftShop Buttons
             const $supriseGiftButton = $('.supriseGift');
             const $safeGiftButton = $('.safeGift');
@@ -146,7 +149,9 @@ giftApp.init = function () {
                         const videoSource = $('<p>').text(`Video from ${giftApp.supriseGift[i].source}`);
                         const videoTag = $('<video controls>').attr('src', videoUrl);
                         const videoContainer = $('<div>').append(videoTag, videoSource);
-                        $('.videoContainer').append(videoContainer);
+                        const videoAppendContainer  = $('.videoContainer');
+                        videoAppendContainer.removeClass('nonDisplay')
+                        videoAppendContainer.append(videoContainer);
                         $safeGiftButton.off("click");
                         $supriseGiftButton.off("click");
                     }
@@ -162,6 +167,7 @@ giftApp.init = function () {
                         img.attr('alt', 'outdoor image');
                         const imgContainer = $('<div>').append(img, artistName);
                         const selectedGiftContainer = $('.selectedGift');
+                        selectedGiftContainer.removeClass('nonDisplay');
                         selectedGiftContainer.append(imgContainer);
                         $supriseGiftButton.off("click");
                         $safeGiftButton.off("click");
