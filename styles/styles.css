@@ -426,6 +426,10 @@ input[type=submit] {
   width: 100%;
 }
 
+.videoContainer video p {
+  padding-bottom: 30px;
+}
+
 footer {
   background-color: goldenrod;
   height: 170px;

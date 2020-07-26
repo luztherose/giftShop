@@ -36,7 +36,7 @@ giftApp.supriseGift = [
     },
     {
         source: 'YouTube',
-        url: 'assets/BabiesPerformed.mp4'
+        url: 'assets/minionsFunny.mp4'
     },
     {
         source: 'YouTube',

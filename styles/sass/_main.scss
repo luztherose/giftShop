@@ -114,7 +114,10 @@ input[type=submit] {
 	width: 400px;
 	height: 300px;
 	margin: 0 auto;
-}
-.videoContainer video {
-	width: 100%;
+	video {
+		width:100%;
+		p {
+			padding-bottom: 30px;
+		}
+	}
 }
