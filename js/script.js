@@ -67,7 +67,6 @@ app.supriseGift = [
         url:'assets/funnyAnimalCollectionVideos.mp4'
     }
 ];
-console.log(app.supriseGift);
 // generateRandomNumber
 function generateRandomNumber() {
     return Math.floor(Math.random() * app.questionsArray.length);
@@ -140,6 +139,8 @@ $('form').on('submit', function (e) {
                     const videoTag = $('<video controls>').attr('src', videoUrl);
                     const videoContainer = $('<div>').append(videoTag, videoSource);
                     $('.videoContainer').append(videoContainer);
+                    safeGift.off("click");
+                    supriseGift.off("click");
                 }
             }
         });
@@ -153,7 +154,10 @@ $('form').on('submit', function (e) {
                     const img = $('<img>').attr('src', imgSource);
                     img.attr('alt', 'outdoor image');
                     const imgContainer = $('<div>').append(img, artistName);
-                    $('.selectedGift').append(imgContainer);
+                    const selectedGiftContainer = $('.selectedGift');
+                    selectedGiftContainer.append(imgContainer);
+                    supriseGift.off("click");
+                    safeGift.off("click");
                 }
             }
         });
