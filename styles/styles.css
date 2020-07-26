@@ -251,7 +251,6 @@ header {
   max-width: 1440px;
   width: 90%;
   margin: 0 auto;
-  height: 100vh;
 }
 
 img {
@@ -269,6 +268,9 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   color: #333;
+  line-height: 29px;
+  letter-spacing: 0.2px;
+  font-weight: 400;
 }
 
 form {
@@ -312,11 +314,10 @@ label {
 
 h1 {
   text-align: center;
-  padding-top: 50px;
+  padding: 50px 0;
   font-family: "Petit Formal Script", cursive;
   font-size: 7rem;
   font-weight: 700;
-  text-shadow: 2px 2px goldenrod;
 }
 
 .gameRules {
@@ -416,19 +417,17 @@ input[type=submit] {
 .videoContainer {
   position: relative;
   width: 400px;
+  height: 300px;
   margin: 0 auto;
 }
 
-.videoContainer iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.videoContainer video {
   width: 100%;
 }
 
 footer {
   background-color: goldenrod;
-  height: 150px;
+  height: 170px;
 }
 
 .junoBrandName {

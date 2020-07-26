@@ -52,7 +52,7 @@ app.supriseGift = [
     },
     {
         source:'YouTube video',
-        url:'assets/funnyBabiesCompilation.mp4'
+        url:'assets/minionsFunny.mp4'
     },
     {
         source:'YouTube video',
@@ -136,7 +136,7 @@ $('form').on('submit', function (e) {
             for (let i = 0; i < app.supriseGift.length; i++) {
                 if (i === app.readRandomNumber) {
                     const videoUrl = app.supriseGift[i].url;
-                    const videoSource = $('<p>').text(`Videos from ${app.supriseGift[i].source}`);
+                    const videoSource = $('<p>').text(`Video from ${app.supriseGift[i].source}`);
                     const videoTag = $('<video controls>').attr('src', videoUrl);
                     const videoContainer = $('<div>').append(videoTag, videoSource);
                     $('.videoContainer').append(videoContainer);
