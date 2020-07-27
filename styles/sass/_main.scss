@@ -12,7 +12,6 @@ html {
 	font-size: 62.5%;
 }
 body {
-	//background-image: linear-gradient(to right, rgba(246, 244, 244, 0), rgb(253, 219, 219));
 	background-color: $bodyBackgroundColor;
 	font-family: $baseFont;
 	font-size: 2rem;
@@ -45,7 +44,6 @@ h1 {
 	text-align: center;
 	padding: 40px 0;
 	margin-top: 35px;
-	//font-family:$secondaryFont;
 	font-size: 7rem;
 	font-weight:$fontWeightBold;
 	//text-shadow: 2px 2px goldenrod;

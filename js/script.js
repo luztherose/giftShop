@@ -25,6 +25,8 @@ giftApp.safeGift = [
     }
 ];
 
+giftApp.userName;
+
 giftApp.supriseGift = [
     {
         source: 'Queen/YouTube',
@@ -48,9 +50,93 @@ giftApp.supriseGift = [
     }
 ];
 
-// generateRandomNumber
-function generateRandomNumber() {
+giftApp.setupSupriseGiftButton = function ($supriseGiftButton, $safeGiftButton) {
+    $supriseGiftButton.on('click', () => {
+        // diplay a random video
+        for (let i = 0; i < giftApp.supriseGift.length; i++) {
+            if (i === giftApp.readRandomNumber) {
+                const videoUrl = giftApp.supriseGift[i].url;
+                const videoSource = $('<p>').text(`Video from ${giftApp.supriseGift[i].source}`);
+                const videoTag = $('<video controls>').attr('src', videoUrl);
+                const videoContainer = $('<div>').append(videoTag, videoSource);
+                const videoAppendContainer = $('.videoContainer');
+                videoAppendContainer.removeClass('nonDisplay')
+                videoAppendContainer.append(videoContainer);
+                $safeGiftButton.off("click");
+                $supriseGiftButton.off("click");
+            }
+        }
+    });
+}
+
+giftApp.setupSafeGiftButton = function ($supriseGiftButton, $safeGiftButton) {
+    $safeGiftButton.on('click', () => {
+        // diplay one image randomly
+        for (let i = 0; i < giftApp.safeGift.length; i++) {
+            if (i === giftApp.readRandomNumber) {
+                const imgSource = giftApp.safeGift[i].src;
+                const artistName = $('<p>').text(`Photo by ${giftApp.safeGift[i].artist} on Unsplash`);
+                const img = $('<img>').attr('src', imgSource);
+                img.attr('alt', 'outdoor image');
+                const imgContainer = $('<div>').append(img, artistName);
+                const selectedGiftContainer = $('.selectedGift');
+                selectedGiftContainer.removeClass('nonDisplay');
+                selectedGiftContainer.append(imgContainer);
+                $supriseGiftButton.off("click");
+                $safeGiftButton.off("click");
+            }
+        }
+    });
+}
+
+giftApp.showGiftShop = function () {
+    giftApp.$screenTittle.text('Pick Your Gift 🎁');
+    // hide current question
+    giftApp.questionDisplayed.addClass('allQuestions');
+    // hide submit button
+    $('.submitForm').addClass('button');
+    // display a message
+    alert(`${giftApp.userName}, welcome to our 𝔾ift 𝕊hop! 🛍`);
+    // Select giftShop Buttons
+    const $supriseGiftButton = $('.supriseGift');
+    const $safeGiftButton = $('.safeGift');
+    // show giftShop buttons
+    $supriseGiftButton.removeClass('button');
+    $safeGiftButton.removeClass('button');
+    // add an Event listener to the giftShop Buttons
+    giftApp.setupSupriseGiftButton($supriseGiftButton, $safeGiftButton);
+    giftApp.setupSafeGiftButton($supriseGiftButton, $safeGiftButton);
+}
+
+giftApp.setupWinGiftButton = function () {
+    // Add event Listener to the form
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        const userAnwer = giftApp.questionDisplayed.find('input[type=radio]:checked').val();
+        const correctAnswer = giftApp.getCorrectAnswer();
+        // Validating user's choice 
+        if (userAnwer === correctAnswer) {
+            giftApp.buzzerRightAnwer.play();
+            giftApp.showGiftShop();
+        } else {
+            giftApp.buzzerWrongAnwer.play();
+        }
+    });
+}
+
+giftApp.generateRandomNumber = function () {
     return Math.floor(Math.random() * giftApp.questionsArray.length);
+}
+
+giftApp.setupPlayButton = function () {
+    giftApp.$playButton = $('.introScreenButton').on('click', function () {
+        giftApp.userName = prompt("What's your name?");
+        $('.gameRules').addClass('button');
+        giftApp.displayRandomQuestion();
+        $('.submitForm').removeClass('button');
+        giftApp.$playButton.addClass('button');
+        giftApp.$screenTittle.text('Select One Answer!!');
+    });
 }
 
 // Looping thr the questionsArray
@@ -73,9 +159,7 @@ giftApp.getCorrectAnswer = function () {
     }
 }
 
-// init function
 giftApp.init = function () {
-    // array of questions
     giftApp.questionsArray = [
         {
             question: $('#question1'),
@@ -99,89 +183,21 @@ giftApp.init = function () {
         }
     ];
 
-    giftApp.readRandomNumber = generateRandomNumber();
+    giftApp.readRandomNumber = giftApp.generateRandomNumber();
     giftApp.questionDisplayed;
     giftApp.$screenTittle = $('h1');
-    //TODO: ADD $ TO VARIABLES NAMES
-    // intro button
-    let userName;
-    giftApp.$playButton = $('.introScreenButton').on('click', function () {
-        userName = prompt("What's your name?");
-        $('.gameRules').addClass('button');
-        giftApp.displayRandomQuestion();
-        $('.submitForm').removeClass('button');
-        giftApp.$playButton.addClass('button');
-        giftApp.$screenTittle.text('Select One Answer!!');
-    });
-    // TODO: AUDIO PLAY JQUERY
+
+    giftApp.setupPlayButton()
+
     // Selecting elements with Vanilla JS to use the play method
+    // https://stackoverflow.com/a/4647069/12465920
     giftApp.buzzerRightAnwer = document.getElementById('buzzerRightAnswer');
     giftApp.buzzerWrongAnwer = document.getElementById('buzzerWrongAnswer');
 
     // Add event Listener to the form
-    $('form').on('submit', function (e) {
-        e.preventDefault();
-        const userAnwer = giftApp.questionDisplayed.find('input[type=radio]:checked').val(); // UserAnwer
-        const correctAnswer = giftApp.getCorrectAnswer();
-        // Validating user's choice 
-        if (userAnwer === correctAnswer) {
-            giftApp.buzzerRightAnwer.play();
-
-            giftApp.$screenTittle.text('Pick Your Gift 🎁');
-            // hide current question
-            giftApp.questionDisplayed.addClass('allQuestions');
-            // hide submit button
-            $('.submitForm').addClass('button');
-            // display a message
-            alert(`${userName}, welcome to our 𝔾ift 𝕊hop! 🛍`)
-            // Select giftShop Buttons
-            const $supriseGiftButton = $('.supriseGift');
-            const $safeGiftButton = $('.safeGift');
-            // show giftShop buttons
-            $supriseGiftButton.removeClass('button');
-            $safeGiftButton.removeClass('button');
-            // add an Event listener to the giftShop Buttons
-            $supriseGiftButton.on('click', () => {
-                // diplay a random video
-                for (let i = 0; i < giftApp.supriseGift.length; i++) {
-                    if (i === giftApp.readRandomNumber) {
-                        const videoUrl = giftApp.supriseGift[i].url;
-                        const videoSource = $('<p>').text(`Video from ${giftApp.supriseGift[i].source}`);
-                        const videoTag = $('<video controls>').attr('src', videoUrl);
-                        const videoContainer = $('<div>').append(videoTag, videoSource);
-                        const videoAppendContainer  = $('.videoContainer');
-                        videoAppendContainer.removeClass('nonDisplay')
-                        videoAppendContainer.append(videoContainer);
-                        $safeGiftButton.off("click");
-                        $supriseGiftButton.off("click");
-                    }
-                }
-            });
-            $safeGiftButton.on('click', () => {
-                // diplay one image randomly
-                for (let i = 0; i < giftApp.safeGift.length; i++) {
-                    if (i === giftApp.readRandomNumber) {
-                        const imgSource = giftApp.safeGift[i].src;
-                        const artistName = $('<p>').text(`Photo by ${giftApp.safeGift[i].artist} on Unsplash`);
-                        const img = $('<img>').attr('src', imgSource);
-                        img.attr('alt', 'outdoor image');
-                        const imgContainer = $('<div>').append(img, artistName);
-                        const selectedGiftContainer = $('.selectedGift');
-                        selectedGiftContainer.removeClass('nonDisplay');
-                        selectedGiftContainer.append(imgContainer);
-                        $supriseGiftButton.off("click");
-                        $safeGiftButton.off("click");
-                    }
-                }
-            });
-        } else {
-            giftApp.buzzerWrongAnwer.play();
-            //location.reload();
-        }
-    });
+    giftApp.setupWinGiftButton()
 }
 // document ready
 $(function () {
     giftApp.init();
 });
-
