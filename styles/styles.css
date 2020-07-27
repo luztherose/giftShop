@@ -236,7 +236,6 @@ html {
 }
 
 header {
-  background-color: goldenrod;
   height: 150px;
 }
 
@@ -245,6 +244,7 @@ header {
   padding-top: 20px;
   font-family: "Petit Formal Script", cursive;
   font-weight: 700;
+  color: goldenrod;
 }
 
 .wrapper {
@@ -320,6 +320,7 @@ h1 {
   margin-top: 35px;
   font-size: 7rem;
   font-weight: 700;
+  text-shadow: 2px 2px goldenrod;
 }
 
 .gameRules {
