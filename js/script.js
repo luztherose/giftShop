@@ -60,7 +60,6 @@ giftApp.setupSupriseGiftButton = function ($supriseGiftButton, $safeGiftButton) 
                 const videoTag = $('<video controls>').attr('src', videoUrl);
                 const videoContainer = $('<div>').append(videoTag, videoSource);
                 const videoAppendContainer = $('.videoContainer');
-                videoAppendContainer.removeClass('nonDisplay')
                 videoAppendContainer.append(videoContainer);
                 $safeGiftButton.off("click");
                 $supriseGiftButton.off("click");
@@ -80,8 +79,9 @@ giftApp.setupSafeGiftButton = function ($supriseGiftButton, $safeGiftButton) {
                 img.attr('alt', 'outdoor image');
                 const imgContainer = $('<div>').append(img, artistName);
                 const selectedGiftContainer = $('.selectedGift');
-                selectedGiftContainer.removeClass('nonDisplay');
                 selectedGiftContainer.append(imgContainer);
+                //no display video container(this container holds the surprise gift)
+                $('.videoContainer').addClass('nonDisplay');
                 $supriseGiftButton.off("click");
                 $safeGiftButton.off("click");
             }
@@ -117,6 +117,8 @@ giftApp.setupWinGiftButton = function () {
         // Validating user's choice 
         if (userAnwer === correctAnswer) {
             giftApp.buzzerRightAnwer.play();
+            // display giftShop container
+            $('.nonDisplay').removeClass('nonDisplay');
             giftApp.showGiftShop();
         } else {
             giftApp.buzzerWrongAnwer.play();

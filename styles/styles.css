@@ -235,10 +235,6 @@ html {
   overflow: hidden;
 }
 
-header {
-  height: 150px;
-}
-
 .logo {
   color: #F5F5F5;
   padding-top: 20px;
@@ -473,7 +469,8 @@ input[type=submit]:hover {
 
 footer {
   background-color: goldenrod;
-  height: 170px;
+  padding-bottom: 20px;
+  margin-top: 20px;
 }
 
 footer p {
@@ -626,6 +623,9 @@ footer p {
   .selectedGift {
     margin: 0 auto;
     width: 320px;
+  }
+  .img {
+    padding-right: 10px;
   }
   .videoContainer {
     width: 320px;
